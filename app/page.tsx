@@ -9,8 +9,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <Main className="leading-tight tracking-tight min-h-screen font-mono space-y-16">
+    <Main className="leading-tight tracking-tight min-h-screen space-y-16">
       <Hero />
+      <WhatWeDo />
       <Clients />
     </Main>
   );
@@ -29,7 +30,7 @@ const Hero = () => {
             placeholder="blur"
           />
         </div>
-        <div className="space-y-8 px-6 sm:px-0 flex flex-col justify-between">
+        <div className="space-y-8 p-6 flex flex-col justify-between">
           <h1 className="text-6xl font-serif uppercase">Desert Codex</h1>
           <div className="space-y-1 mt-auto">
             <h2 className="text-lg">Systems, interfaces, intelligence</h2>
@@ -46,20 +47,46 @@ const Hero = () => {
   );
 };
 
+const WhatWeDo = () => {
+  return (
+    <Section>
+      <Container className="px-6 sm:px-0">
+        <div className="max-w-2xl">
+          <h3 className="text-2xl font-serif uppercase">What we do</h3>
+          <h4 className="mt-6 mb-2 text-muted-foreground">
+            Product Design + Build
+          </h4>
+          <p>
+            Full stack design engineering — from system architecture to
+            pixel-level interface. For teams that need senior execution, not
+            another deck of wireframes.
+          </p>
+          <h4 className="mt-6 mb-2 text-muted-foreground">AI Integration</h4>
+          <p>
+            Embedding intelligence into existing products. Smarter workflows,
+            better tooling, interfaces that actually use the tech. Practical AI
+            that ships.
+          </p>
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
 const Clients = () => {
   return (
     <Section>
-      <Container className="p-6">
-        <h3 className="text-2xl font-serif uppercase">Trusted by</h3>
+      <Container className="px-6 sm:px-0">
+        <h3 className="text-2xl font-serif uppercase mb-6">Trusted by</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px">
           {clients.map((client) => (
             <Link
               key={client.name}
               href={client.url}
               target="_blank"
-              className="flex items-center justify-center p-4 bg-background"
+              className="flex items-center justify-center p-6 bg-background"
             >
-              <Image src={client.image} alt={client.name} />
+              <Image src={client.image} alt={client.name} className="h-6" />
             </Link>
           ))}
         </div>
