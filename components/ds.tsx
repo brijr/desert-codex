@@ -41,7 +41,7 @@ type DSProps = {
  * @returns {JSX.Element} A section element.
  */
 export const Section = ({ children, className, id, style }: DSProps) => (
-  <section className={cn("py-2 sm:py-4", className)} id={id} style={style}>
+  <section className={cn("", className)} id={id} style={style}>
     {children}
   </section>
 );
@@ -57,11 +57,7 @@ export const Section = ({ children, className, id, style }: DSProps) => (
  * @returns {JSX.Element} A div element acting as a container.
  */
 export const Container = ({ children, className, id, style }: DSProps) => (
-  <div
-    className={cn("max-w-5xl mx-auto p-4 sm:p-6", className)}
-    id={id}
-    style={style}
-  >
+  <div className={cn("max-w-5xl mx-auto", className)} id={id} style={style}>
     {children}
   </div>
 );
