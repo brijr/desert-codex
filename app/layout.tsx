@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://desertcodex.com"),
   title: "Desert Codex | Design Engineering & AI Integration Studio",
   description:
     "Desert Codex is a design engineering and AI integration studio founded by Bridger. We partner with product teams for full stack design engineering and AI integration. No wireframe handoffs, no bloated timelines.",
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Desert Codex",
+    url: "https://desertcodex.com",
   },
   twitter: {
     card: "summary_large_image",
