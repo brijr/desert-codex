@@ -1,6 +1,7 @@
 import { Main, Section, Container } from "@/components/ds";
 
 import { clients } from "@/lib/clients";
+import { ModeToggle } from "@/components/mode-toggle";
 
 import AboutImage from "@/public/about.jpeg";
 import HeroImage from "@/public/hero.jpeg";
@@ -82,15 +83,19 @@ const Clients = () => {
     <Section>
       <Container className="px-6 sm:px-0">
         <h3 className="text-4xl font-serif uppercase mb-6">Trusted by</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px hover:bg-border/50 transition-colors">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px">
           {clients.map((client) => (
             <Link
               key={client.name}
               href={client.url}
               target="_blank"
-              className="flex items-center justify-center p-8 bg-background grayscale"
+              className="flex items-center justify-center p-8 bg-background grayscale hover:brightness-110 transition-colors"
             >
-              <Image src={client.image} alt={client.name} className="h-6" />
+              <Image
+                src={client.image}
+                alt={client.name}
+                className="h-6 dark:invert"
+              />
             </Link>
           ))}
         </div>
@@ -164,7 +169,10 @@ const Footer = () => {
   return (
     <Section>
       <Container className="bg-muted p-8 border-x border-t">
-        <p>© 2025 Desert Codex</p>
+        <div className="flex items-center justify-between">
+          <p>© 2025 Desert Codex</p>
+          <ModeToggle />
+        </div>
       </Container>
     </Section>
   );
