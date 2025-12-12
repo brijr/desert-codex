@@ -47,4 +47,24 @@ export const clients: Client[] = [
     image: Logo,
     url: "https://btswe.com",
   },
+  {
+    name: "Logo9",
+    image: Logo,
+    url: "https://btswe.com",
+  },
+  {
+    name: "Logo10",
+    image: Logo,
+    url: "https://btswe.com",
+  },
+  {
+    name: "Logo11",
+    image: Logo,
+    url: "https://btswe.com",
+  },
+  {
+    name: "Logo12",
+    image: Logo,
+    url: "https://btswe.com",
+  },
 ];

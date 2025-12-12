@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <Main className="leading-tight tracking-tight min-h-screen space-y-16">
+    <Main className="leading-tight tracking-tight min-h-screen space-y-32 text-lg">
       <Hero />
       <WhatWeDo />
       <Clients />
@@ -30,11 +30,11 @@ const Hero = () => {
             placeholder="blur"
           />
         </div>
-        <div className="space-y-8 p-6 flex flex-col justify-between">
+        <div className="space-y-8 p-8 flex flex-col justify-between">
           <h1 className="text-6xl font-serif uppercase">Desert Codex</h1>
           <div className="space-y-1 mt-auto">
-            <h2 className="text-lg">Systems, interfaces, intelligence</h2>
-            <h3 className="text-lg text-muted-foreground">
+            <h2>Systems, interfaces, intelligence</h2>
+            <h3 className="text-muted-foreground">
               Building interfaces and intelligence for product teams.
             </h3>
           </div>
@@ -52,7 +52,7 @@ const WhatWeDo = () => {
     <Section>
       <Container className="px-6 sm:px-0">
         <div className="max-w-2xl">
-          <h3 className="text-2xl font-serif uppercase">What we do</h3>
+          <h3 className="text-4xl font-serif uppercase">Service Offerings</h3>
           <h4 className="mt-6 mb-2 text-muted-foreground">
             Product Design + Build
           </h4>
@@ -77,14 +77,14 @@ const Clients = () => {
   return (
     <Section>
       <Container className="px-6 sm:px-0">
-        <h3 className="text-2xl font-serif uppercase mb-6">Trusted by</h3>
+        <h3 className="text-4xl font-serif uppercase mb-6">Trusted by</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px">
           {clients.map((client) => (
             <Link
               key={client.name}
               href={client.url}
               target="_blank"
-              className="flex items-center justify-center p-6 bg-background"
+              className="flex items-center justify-center p-8 bg-background"
             >
               <Image src={client.image} alt={client.name} className="h-6" />
             </Link>
