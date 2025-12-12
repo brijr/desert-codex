@@ -121,3 +121,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+a {
+  @apply text-primary underline decoration-muted-foreground decoration-dotted underline-offset-4;
+}

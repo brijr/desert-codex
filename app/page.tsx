@@ -25,16 +25,17 @@ const Hero = () => {
             className="object-cover"
           />
         </div>
-        <div className="p-6">
-          <h1 className="text-6xl font-serif uppercase mb-auto">
-            Desert Codex
-          </h1>
-          <h2 className="text-2xl">Systems, interfaces, intelligence</h2>
-          <h3>
-            Design engineering and AI integration for products that need to
-            ship.
-          </h3>
-          <Link href="/">Start a conversation</Link>
+        <div className="p-6 flex flex-col justify-between">
+          <h1 className="text-6xl font-serif uppercase">Desert Codex</h1>
+          <div className="space-y-1">
+            <h2 className="text-lg">Systems, interfaces, intelligence</h2>
+            <h3 className="text-lg text-muted-foreground">
+              Building interfaces and intelligence for product teams.
+            </h3>
+            <Link className="block mt-8" href="/">
+              Start a conversation
+            </Link>
+          </div>
         </div>
       </Container>
     </Section>
