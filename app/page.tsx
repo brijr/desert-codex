@@ -2,6 +2,7 @@ import { Main, Section, Container } from "@/components/ds";
 
 import { clients } from "@/lib/clients";
 
+import AboutImage from "@/public/about.jpeg";
 import HeroImage from "@/public/hero.jpeg";
 
 import Image from "next/image";
@@ -9,10 +10,12 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <Main className="leading-tight tracking-tight min-h-screen space-y-32 text-lg">
+    <Main className="leading-tight tracking-tight min-h-screen space-y-32 text-lg text-pretty">
       <Hero />
       <WhatWeDo />
       <Clients />
+      <HowItWorks />
+      <About />
     </Main>
   );
 }
@@ -89,6 +92,67 @@ const Clients = () => {
               <Image src={client.image} alt={client.name} className="h-6" />
             </Link>
           ))}
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
+const HowItWorks = () => {
+  return (
+    <Section>
+      <Container className="px-6 sm:px-0">
+        <div className="max-w-2xl">
+          <h3 className="text-4xl font-serif uppercase">How it works</h3>
+          <p className="mt-6">
+            Monthly engagements starting at $10k. I embed with your team or work
+            async — whatever fits. Flexible scope, serious commitment. No hourly
+            billing, no spec work.
+          </p>
+          <p className="mt-4">
+            Best fit: funded startups, growth-stage products, or teams with
+            budget and urgency.
+          </p>
+          <Link className="block mt-6" href="/">
+            Let&apos;s talk &rarr;
+          </Link>
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
+const About = () => {
+  return (
+    <Section>
+      <Container className="grid sm:grid-cols-2">
+        <div className="p-8 sm:pl-0">
+          <h3 className="text-4xl font-serif uppercase mb-6">About</h3>
+          <p className="mb-2">
+            I&apos;m Bridger — design engineer based in southern Utah. I&apos;ve
+            spent years at the intersection of product design, frontend
+            engineering, and now AI tooling.
+          </p>
+          <p className="mb-6">
+            I build things that work. If you need someone who can design the
+            system and ship the code, we should talk.
+          </p>
+          <Link
+            className="block"
+            href="http://bridger.to/about"
+            target="_blank"
+          >
+            Read my manifesto &rarr;
+          </Link>
+        </div>
+        <div className="h-[50vh] sm:h-[75vh] overflow-hidden relative">
+          <Image
+            src={AboutImage}
+            alt="Hero Image"
+            fill
+            className="object-cover"
+            placeholder="blur"
+          />
         </div>
       </Container>
     </Section>

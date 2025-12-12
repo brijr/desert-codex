@@ -123,5 +123,5 @@
 }
 
 a {
-  @apply text-primary underline decoration-muted-foreground decoration-dotted underline-offset-4;
+  @apply text-primary underline decoration-muted-foreground decoration-dotted underline-offset-4 hover:decoration-solid;
 }
