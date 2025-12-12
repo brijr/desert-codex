@@ -82,13 +82,13 @@ const Clients = () => {
     <Section>
       <Container className="px-6 sm:px-0">
         <h3 className="text-4xl font-serif uppercase mb-6">Trusted by</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px hover:bg-border/50 transition-colors">
           {clients.map((client) => (
             <Link
               key={client.name}
               href={client.url}
               target="_blank"
-              className="flex items-center justify-center p-8 bg-background"
+              className="flex items-center justify-center p-8 bg-background grayscale"
             >
               <Image src={client.image} alt={client.name} className="h-6" />
             </Link>
