@@ -16,6 +16,7 @@ export default function Home() {
       <Clients />
       <HowItWorks />
       <About />
+      <Footer />
     </Main>
   );
 }
@@ -154,6 +155,16 @@ const About = () => {
             placeholder="blur"
           />
         </div>
+      </Container>
+    </Section>
+  );
+};
+
+const Footer = () => {
+  return (
+    <Section>
+      <Container className="bg-muted p-8 border-x border-t">
+        <p>© 2025 Desert Codex</p>
       </Container>
     </Section>
   );
