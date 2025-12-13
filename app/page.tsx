@@ -13,9 +13,9 @@ export default function Home() {
   return (
     <Main className="leading-tight tracking-tight min-h-screen space-y-32 text-lg text-pretty">
       <Hero />
-      <WhatWeDo />
-      <Clients />
+      <WhatIDo />
       <HowItWorks />
+      <SelectWork />
       <About />
       <Footer />
     </Main>
@@ -40,10 +40,70 @@ const Hero = () => {
           <div className="space-y-1 mt-auto">
             <h2>Systems, interfaces, intelligence</h2>
             <h3 className="text-muted-foreground">
-              Building interfaces and intelligence for product teams.
+              I help founders go from idea to live product — brand, design, and
+              build.
             </h3>
           </div>
           <Link className="block" href="/">
+            Let&apos;s build something &rarr;
+          </Link>
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
+const WhatIDo = () => {
+  return (
+    <Section>
+      <Container className="px-6 sm:px-0">
+        <div className="max-w-2xl">
+          <h3 className="text-4xl font-serif uppercase">What I do</h3>
+          <h4 className="mt-6 mb-2 text-muted-foreground">Brand + Identity</h4>
+          <p>
+            Name, logo, visual system — the foundation that makes everything
+            else easier. A clear identity from day one, not an afterthought.
+          </p>
+          <h4 className="mt-6 mb-2 text-muted-foreground">
+            Design + Interface
+          </h4>
+          <p>
+            Product design that ships. From early concepts to polished UI, built
+            in systems that scale. No handoffs, no Figma files that collect
+            dust.
+          </p>
+          <h4 className="mt-6 mb-2 text-muted-foreground">Build + Launch</h4>
+          <p>
+            Full stack implementation — landing pages, apps, integrations. I
+            write the code and get it live. You end the month with something
+            real.
+          </p>
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
+const HowItWorks = () => {
+  return (
+    <Section>
+      <Container className="px-6 sm:px-0">
+        <div className="max-w-2xl">
+          <h3 className="text-4xl font-serif uppercase">How it works</h3>
+          <p className="mt-6">This is a partnership, not a ticket queue.</p>
+          <p className="mt-4">
+            We work together monthly — I become an extension of your team while
+            you&apos;re building. Strategy, design, and code in one place.
+          </p>
+          <p className="mt-4">
+            Engagements start at $5k/month. Async-first, focused hours, real
+            output.
+          </p>
+          <p className="mt-4 text-muted-foreground">
+            Best fit: founders with an idea and momentum who need a builder, not
+            a roadmap.
+          </p>
+          <Link className="block mt-6" href="/">
             Start a conversation &rarr;
           </Link>
         </div>
@@ -52,37 +112,11 @@ const Hero = () => {
   );
 };
 
-const WhatWeDo = () => {
+const SelectWork = () => {
   return (
     <Section>
       <Container className="px-6 sm:px-0">
-        <div className="max-w-2xl">
-          <h3 className="text-4xl font-serif uppercase">Service Offerings</h3>
-          <h4 className="mt-6 mb-2 text-muted-foreground">
-            Product Design + Build
-          </h4>
-          <p>
-            Full stack design engineering — from system architecture to
-            pixel-level interface. For teams that need senior execution, not
-            another deck of wireframes.
-          </p>
-          <h4 className="mt-6 mb-2 text-muted-foreground">AI Integration</h4>
-          <p>
-            Embedding intelligence into existing products. Smarter workflows,
-            better tooling, interfaces that actually use the tech. Practical AI
-            that ships.
-          </p>
-        </div>
-      </Container>
-    </Section>
-  );
-};
-
-const Clients = () => {
-  return (
-    <Section>
-      <Container className="px-6 sm:px-0">
-        <h3 className="text-4xl font-serif uppercase mb-6">Trusted by</h3>
+        <h3 className="text-4xl font-serif uppercase mb-6">Select work</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px">
           {clients.map((client) => (
             <Link
@@ -104,57 +138,26 @@ const Clients = () => {
   );
 };
 
-const HowItWorks = () => {
-  return (
-    <Section>
-      <Container className="px-6 sm:px-0">
-        <div className="max-w-2xl">
-          <h3 className="text-4xl font-serif uppercase">How it works</h3>
-          <p className="mt-6">
-            Monthly engagements starting at $10k. I embed with your team or work
-            async — whatever fits. Flexible scope, serious commitment. No hourly
-            billing, no spec work.
-          </p>
-          <p className="mt-4">
-            Best fit: funded startups, growth-stage products, or teams with
-            budget and urgency.
-          </p>
-          <Link className="block mt-6" href="/">
-            Let&apos;s talk &rarr;
-          </Link>
-        </div>
-      </Container>
-    </Section>
-  );
-};
-
 const About = () => {
   return (
     <Section>
       <Container className="grid sm:grid-cols-2">
         <div className="p-8 sm:pl-0">
           <h3 className="text-4xl font-serif uppercase mb-6">About</h3>
-          <p className="mb-2">
-            I&apos;m Bridger — design engineer based in southern Utah. I&apos;ve
-            spent years at the intersection of product design, frontend
-            engineering, and now AI tooling.
+          <p className="mb-4">
+            I&apos;m Bridger — designer and engineer based in southern Utah.
+            I&apos;ve built my own products, helped startups ship, and learned
+            what actually matters when you&apos;re going from zero to one.
           </p>
-          <p className="mb-6">
-            I build things that work. If you need someone who can design the
-            system and ship the code, we should talk.
+          <p>
+            If you&apos;ve got an idea and need someone who can brand it, design
+            it, and build it — not just advise — let&apos;s talk.
           </p>
-          <Link
-            className="block"
-            href="http://bridger.to/about"
-            target="_blank"
-          >
-            Read my manifesto &rarr;
-          </Link>
         </div>
         <div className="h-[50vh] sm:h-[75vh] overflow-hidden relative">
           <Image
             src={AboutImage}
-            alt="Hero Image"
+            alt="About Image"
             fill
             className="object-cover"
             placeholder="blur"
@@ -169,9 +172,32 @@ const Footer = () => {
   return (
     <Section>
       <Container className="bg-muted p-8 border-x border-t">
-        <div className="flex items-center justify-between">
-          <p>© 2025 Desert Codex</p>
-          <ModeToggle />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <Link href="mailto:hello@desertcodex.com" className="hover:underline">
+              Email
+            </Link>
+            <span className="text-muted-foreground">·</span>
+            <Link
+              href="https://x.com/bridgertower"
+              target="_blank"
+              className="hover:underline"
+            >
+              X
+            </Link>
+            <span className="text-muted-foreground">·</span>
+            <Link
+              href="https://github.com/brijr"
+              target="_blank"
+              className="hover:underline"
+            >
+              GitHub
+            </Link>
+          </div>
+          <div className="flex items-center gap-4">
+            <p className="text-muted-foreground">© Desert Codex</p>
+            <ModeToggle />
+          </div>
         </div>
       </Container>
     </Section>
