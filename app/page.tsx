@@ -41,7 +41,7 @@ const Hero = () => {
         <Image
           src={HeroImage}
           alt="Hero Image"
-          className="aspect-video object-cover"
+          className="aspect-video object-cover mt-6"
           placeholder="blur"
         />
       </Container>
@@ -105,9 +105,9 @@ const HowItWorks = () => {
 const SelectWork = () => {
   return (
     <Section>
-      <Container>
-        <h3>Select work</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px">
+      <Container className="!p-0">
+        <h3 className="px-4 py-4 sm:px-6 sm:pt-6">Select work</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 border-t border-border bg-border gap-px">
           {clients.map((client) => (
             <Link
               key={client.name}
@@ -118,7 +118,7 @@ const SelectWork = () => {
               <Image
                 src={client.image}
                 alt={client.name}
-                className="h-6 dark:invert"
+                className="h-6 brightness-0 dark:brightness-100 dark:invert"
               />
             </Link>
           ))}
@@ -148,7 +148,7 @@ const About = () => {
         <Image
           src={AboutImage}
           alt="About Image"
-          className="aspect-video object-cover"
+          className="aspect-video object-cover mt-6"
           placeholder="blur"
         />
       </Container>
