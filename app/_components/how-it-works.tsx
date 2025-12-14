@@ -26,7 +26,9 @@ export const HowItWorks = () => {
           <div className="bg-background p-4 sm:p-6 flex flex-col justify-between gap-4">
             <div>
               <span className="text-muted-foreground text-sm">Starting at</span>
-              <p className="text-2xl sm:text-3xl tracking-tight">$5k/month</p>
+              <p className="text-2xl sm:text-3xl tracking-tight">
+                $5k-$10k/month
+              </p>
               <p className="text-muted-foreground mt-1">
                 Async-first, focused hours, real output.
               </p>
