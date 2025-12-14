@@ -1,22 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  /* Text scale system */
-  --text-base: 1rem; /* 16px base unit */
+  /* ========== BASE UNITS ========== */
+  --text-base: 1rem;
+  --text-ratio: 1;
+  --spacing: 0.25rem;
+  --spacing-ratio: 1.4;
+  --leading: 1.4;
+  --tracking: 0rem;
 
-  /* Spacing system */
-  --spacing: 0.25rem; /* 4px base unit */
+  /* ========== COMPUTED SCALES ========== */
+  /* Text scale (ratio^n) */
+  --text-1: var(--text-ratio);
+  --text-2: calc(var(--text-ratio) * var(--text-ratio));
+  --text-3: calc(var(--text-ratio) * var(--text-ratio) * var(--text-ratio));
+  --text-4: calc(
+    var(--text-ratio) * var(--text-ratio) * var(--text-ratio) *
+      var(--text-ratio)
+  );
 
-  /* Line height system */
-  --leading: 1.4; /* base line height */
+  /* Spacing scale (ratio^n) */
+  --space-1: var(--spacing-ratio);
+  --space-2: calc(var(--spacing-ratio) * var(--spacing-ratio));
+  --space-3: calc(
+    var(--spacing-ratio) * var(--spacing-ratio) * var(--spacing-ratio)
+  );
+  --space-4: calc(
+    var(--spacing-ratio) * var(--spacing-ratio) * var(--spacing-ratio) *
+      var(--spacing-ratio)
+  );
+  --space-5: calc(
+    var(--spacing-ratio) * var(--spacing-ratio) * var(--spacing-ratio) *
+      var(--spacing-ratio) * var(--spacing-ratio)
+  );
 
-  /* Letter spacing system */
-  --tracking: -0.01rem; /* base letter spacing */
+  /* ========== DERIVED VALUES ========== */
+  --leading-tight: calc(var(--leading) * 0.785);
+  --tracking-tight: calc(var(--tracking) * 6);
 
-  /* Font weights */
+  /* ========== OTHER ========== */
   --body-weight: 300;
   --heading-weight: 400;
-
   --prose-width: 65ch;
 }
 
@@ -32,56 +56,54 @@
     letter-spacing: var(--tracking);
   }
 
+  /* Headings - shared styles */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: var(--heading-weight);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+
   h1 {
     font-size: clamp(
-      calc(var(--text-base) * 3.157),
-      calc(var(--text-base) * 2.5) + 2.5vw,
-      calc(var(--text-base) * 3.998)
+      calc(var(--text-base) * var(--text-4)),
+      calc(var(--text-base) * var(--text-3)) + 2.5vw,
+      calc(var(--text-base) * var(--text-4) * var(--text-1))
     );
-    font-weight: var(--heading-weight);
-    line-height: calc(var(--leading) * 0.785);
-    letter-spacing: calc(var(--tracking) * 6);
-    margin-top: calc(var(--spacing) * 12);
-    margin-bottom: calc(var(--spacing) * 6);
+    margin-top: calc(var(--spacing) * var(--space-5));
+    margin-bottom: calc(var(--spacing) * var(--space-4));
   }
 
   h2 {
     font-size: clamp(
-      calc(var(--text-base) * 2.369),
-      calc(var(--text-base) * 2) + 1.5vw,
-      calc(var(--text-base) * 2.827)
+      calc(var(--text-base) * var(--text-3)),
+      calc(var(--text-base) * var(--text-2)) + 1.5vw,
+      calc(var(--text-base) * var(--text-3) * var(--text-1))
     );
-    font-weight: var(--heading-weight);
-    line-height: calc(var(--leading) * 0.785);
-    letter-spacing: calc(var(--tracking) * 6);
-    margin-top: calc(var(--spacing) * 10);
-    margin-bottom: calc(var(--spacing) * 5);
+    margin-top: calc(var(--spacing) * var(--space-4));
+    margin-bottom: calc(var(--spacing) * var(--space-3));
   }
 
   h3 {
     font-size: clamp(
-      calc(var(--text-base) * 1.777),
-      calc(var(--text-base) * 1.6) + 0.8vw,
-      calc(var(--text-base) * 2)
+      calc(var(--text-base) * var(--text-2)),
+      calc(var(--text-base) * var(--text-1)) + 0.8vw,
+      calc(var(--text-base) * var(--text-2) * var(--text-1))
     );
-    font-weight: var(--heading-weight);
-    line-height: calc(var(--leading) * 0.785);
-    letter-spacing: calc(var(--tracking) * 6);
-    margin-top: calc(var(--spacing) * 8);
-    margin-bottom: calc(var(--spacing) * 4);
+    margin-top: calc(var(--spacing) * var(--space-3));
+    margin-bottom: calc(var(--spacing) * var(--space-2));
   }
 
   h4 {
     font-size: clamp(
-      calc(var(--text-base) * 1.333),
-      calc(var(--text-base) * 1.2) + 0.5vw,
-      calc(var(--text-base) * 1.5)
+      calc(var(--text-base) * var(--text-1)),
+      var(--text-base) + 0.5vw,
+      calc(var(--text-base) * var(--text-1) * var(--text-1))
     );
-    font-weight: var(--heading-weight);
-    line-height: calc(var(--leading) * 0.785);
-    letter-spacing: calc(var(--tracking) * 6);
-    margin-top: calc(var(--spacing) * 6);
-    margin-bottom: calc(var(--spacing) * 3);
+    margin-top: calc(var(--spacing) * var(--space-2));
+    margin-bottom: calc(var(--spacing) * var(--space-1));
   }
 
   h5,
@@ -89,22 +111,22 @@
     font-size: clamp(
       var(--text-base),
       calc(var(--text-base) * 0.95) + 0.3vw,
-      calc(var(--text-base) * 1.125)
+      calc(var(--text-base) * var(--text-1))
     );
     font-weight: var(--heading-weight);
     line-height: var(--leading);
     letter-spacing: var(--tracking);
-    margin-top: calc(var(--spacing) * 4);
-    margin-bottom: calc(var(--spacing) * 2);
+    margin-top: calc(var(--spacing) * var(--space-1));
+    margin-bottom: var(--spacing);
   }
 
-  /* Body Text */
+  /* Body text */
   p {
     font-weight: var(--body-weight);
     line-height: var(--leading);
     letter-spacing: var(--tracking);
-    margin-top: calc(var(--spacing) * 4);
-    margin-bottom: calc(var(--spacing) * 4);
+    margin-top: calc(var(--spacing) * var(--space-2));
+    margin-bottom: calc(var(--spacing) * var(--space-2));
   }
 
   /* Links */
@@ -121,8 +143,8 @@
     line-height: var(--leading);
     letter-spacing: var(--tracking);
     padding-left: 1.5em;
-    margin-top: calc(var(--spacing) * 4);
-    margin-bottom: calc(var(--spacing) * 4);
+    margin-top: calc(var(--spacing) * var(--space-2));
+    margin-bottom: calc(var(--spacing) * var(--space-2));
   }
 
   /* Code */
@@ -132,8 +154,8 @@
 
   pre {
     font-size: clamp(
-      calc(var(--text-base) * 0.75),
-      calc(var(--text-base) * 0.7) + 0.3vw,
+      calc(var(--text-base) / var(--text-1)),
+      calc(var(--text-base) * 0.9) + 0.3vw,
       var(--text-base)
     );
     font-weight: var(--body-weight);
@@ -141,50 +163,40 @@
     letter-spacing: var(--tracking);
     overflow-x: auto;
     border: 1px solid var(--border);
-    padding: calc(var(--spacing) * 4);
+    padding: calc(var(--spacing) * var(--space-2));
     border-radius: var(--radius);
-    margin-top: calc(var(--spacing) * 4);
-    margin-bottom: calc(var(--spacing) * 4);
+    margin-top: calc(var(--spacing) * var(--space-2));
+    margin-bottom: calc(var(--spacing) * var(--space-2));
   }
 
   /* Blockquotes */
   blockquote {
     font-size: clamp(
-      calc(var(--text-base) * 1.333),
-      calc(var(--text-base) * 1.2) + 0.5vw,
-      calc(var(--text-base) * 1.5)
+      calc(var(--text-base) * var(--text-1)),
+      var(--text-base) + 0.5vw,
+      calc(var(--text-base) * var(--text-1) * var(--text-1))
     );
     font-weight: var(--body-weight);
     line-height: var(--leading);
     letter-spacing: var(--tracking);
-    padding-left: calc(var(--spacing) * 4);
+    padding-left: calc(var(--spacing) * var(--space-2));
     border-left-width: 0.125rem;
-    margin-top: calc(var(--spacing) * 6);
-    margin-bottom: calc(var(--spacing) * 6);
+    margin-top: calc(var(--spacing) * var(--space-3));
+    margin-bottom: calc(var(--spacing) * var(--space-3));
   }
 
-  /* Remove margin-top on first children */
-  h1:first-child,
-  h2:first-child,
-  h3:first-child,
-  h4:first-child,
-  h5:first-child,
-  h6:first-child,
-  p:first-child,
-  ul:first-child,
-  ol:first-child,
-  pre:first-child,
-  blockquote:first-child {
+  /* First-child margin reset */
+  :is(h1, h2, h3, h4, h5, h6, p, ul, ol, pre, blockquote):first-child {
     margin-top: 0;
   }
 }
 
-/* Prose Width */
+/* ========== UTILITIES ========== */
+
 @utility prose {
   max-width: var(--prose-width);
 }
 
-/* Text Balance */
 @utility text-balance {
   text-wrap: balance;
 }
@@ -193,55 +205,51 @@
   text-wrap: pretty;
 }
 
-/* Gradient Text */
 @utility text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Override typography styles when needed */
 @utility body-weight {
   font-weight: var(--body-weight);
 }
+
 @utility heading-weight {
   font-weight: var(--heading-weight);
 }
+
 @utility body-leading {
   line-height: var(--leading);
 }
+
 @utility heading-leading {
-  line-height: calc(var(--leading) * 0.785);
+  line-height: var(--leading-tight);
 }
+
 @utility body-tracking {
   letter-spacing: var(--tracking);
 }
+
 @utility heading-tracking {
-  letter-spacing: calc(var(--tracking) * 6);
+  letter-spacing: var(--tracking-tight);
 }
 
-/* ================================
-   Simple Components
-   ================================ */
+/* ========== COMPONENTS ========== */
 
 @layer components {
-  /* Article - Auto-styled content */
   .article {
     max-width: var(--prose-width);
 
     & > * + * {
-      margin-top: calc(var(--spacing) * 2);
+      margin-top: calc(var(--spacing) * var(--space-1));
     }
 
-    & h1,
-    & h2,
-    & h3 {
-      margin-top: calc(var(--spacing) * 4);
+    & :is(h1, h2, h3) {
+      margin-top: calc(var(--spacing) * var(--space-2));
     }
 
-    & h1:first-child,
-    & h2:first-child,
-    & h3:first-child {
+    & :is(h1, h2, h3):first-child {
       margin-top: 0;
     }
   }
