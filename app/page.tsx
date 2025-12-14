@@ -49,26 +49,42 @@ const Hero = () => {
   );
 };
 
+const services = [
+  {
+    title: "Brand + Identity",
+    description:
+      "Name, logo, visual system — the foundation that makes everything else easier. A clear identity from day one, not an afterthought.",
+  },
+  {
+    title: "Design + Interface",
+    description:
+      "Product design that ships. From early concepts to polished UI, built in systems that scale. No handoffs, no Figma files that collect dust.",
+  },
+  {
+    title: "Build + Launch",
+    description:
+      "Full stack implementation — landing pages, apps, integrations. I write the code and get it live. You end the month with something real.",
+  },
+];
+
 const WhatIDo = () => {
   return (
     <Section>
-      <Container>
-        <h3>What I do</h3>
-        <h4 className="text-muted-foreground">Brand + Identity</h4>
-        <p>
-          Name, logo, visual system — the foundation that makes everything else
-          easier. A clear identity from day one, not an afterthought.
-        </p>
-        <h4 className="text-muted-foreground">Design + Interface</h4>
-        <p>
-          Product design that ships. From early concepts to polished UI, built
-          in systems that scale. No handoffs, no Figma files that collect dust.
-        </p>
-        <h4 className="text-muted-foreground">Build + Launch</h4>
-        <p>
-          Full stack implementation — landing pages, apps, integrations. I write
-          the code and get it live. You end the month with something real.
-        </p>
+      <Container className="!p-0">
+        <h3 className="px-4 py-4 sm:px-6 sm:pt-6">What I do</h3>
+        <div className="grid sm:grid-cols-3 border-t border-border bg-border gap-px">
+          {services.map((service, i) => (
+            <div key={service.title} className="bg-background p-4 sm:p-6">
+              <span className="text-muted-foreground tabular-nums">
+                0{i + 1}
+              </span>
+              <h4 className="mt-2">{service.title}</h4>
+              <p className="text-muted-foreground mt-2">
+                {service.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </Container>
     </Section>
   );
@@ -77,25 +93,35 @@ const WhatIDo = () => {
 const HowItWorks = () => {
   return (
     <Section>
-      <Container>
-        <div className="max-w-2xl">
+      <Container className="!p-0">
+        <div className="px-4 py-4 sm:px-6 sm:pt-6">
           <h3>How it works</h3>
-          <p>This is a partnership, not a ticket queue.</p>
-          <p>
-            We work together monthly — I become an extension of your team while
-            you&apos;re building. Strategy, design, and code in one place.
-          </p>
-          <p>
-            Engagements start at $5k/month. Async-first, focused hours, real
-            output.
-          </p>
-          <p className="text-muted-foreground">
-            Best fit: founders with an idea and momentum who need a builder, not
-            a roadmap.
-          </p>
-          <Link className="block" href="/">
-            Start a conversation &rarr;
-          </Link>
+          <h4 className="text-muted-foreground">
+            This is a partnership, not a ticket queue.
+          </h4>
+        </div>
+        <div className="grid sm:grid-cols-2 border-t border-border bg-border gap-px">
+          <div className="bg-background p-4 sm:p-6">
+            <p>
+              We work together monthly — I become an extension of your team
+              while you&apos;re building. Strategy, design, and code in one
+              place.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              Best fit: founders with an idea and momentum who need a builder,
+              not a roadmap.
+            </p>
+          </div>
+          <div className="bg-background p-4 sm:p-6 flex flex-col justify-between gap-4">
+            <div>
+              <span className="text-muted-foreground text-sm">Starting at</span>
+              <p className="text-2xl sm:text-3xl tracking-tight">$5k/month</p>
+              <p className="text-muted-foreground mt-1">
+                Async-first, focused hours, real output.
+              </p>
+            </div>
+            <Link href="/">Start a conversation &rarr;</Link>
+          </div>
         </div>
       </Container>
     </Section>
