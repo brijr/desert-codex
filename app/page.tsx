@@ -71,7 +71,12 @@ const WhatIDo = () => {
   return (
     <Section>
       <Container className="!p-0">
-        <h3 className="px-4 py-4 sm:px-6 sm:pt-6">What I do</h3>
+        <div className="px-4 py-4 sm:px-6 sm:pt-6">
+          <h2>What I do</h2>
+          <h3 className="text-muted-foreground">
+            I help founders go from 0 &rarr; 1. Concept to product.
+          </h3>
+        </div>
         <div className="grid sm:grid-cols-3 border-t border-border bg-border gap-px">
           {services.map((service, i) => (
             <div key={service.title} className="bg-background p-4 sm:p-6">
