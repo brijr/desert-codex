@@ -47,12 +47,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Desert Codex",
     url: "https://desertcodex.com",
+    images: [
+      {
+        url: "/hero.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Desert Codex",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Desert Codex | Design Engineering & AI Integration Studio",
     description:
       "Design engineering and AI integration studio. Full stack execution from system architecture to interface.",
+    images: ["/hero.jpeg"],
   },
   robots: {
     index: true,
