@@ -16,6 +16,11 @@ const services = [
     description:
       "Full stack implementation — landing pages, apps, integrations. I write the code and get it live. You end the month with something real.",
   },
+  {
+    title: "AI + Automate",
+    description:
+      "Intelligent workflows and AI integrations. I help you ship smarter, not just faster. Finally implement AI that works for your customers.",
+  },
 ];
 
 export const WhatIDo = () => {
@@ -28,7 +33,7 @@ export const WhatIDo = () => {
             I help founders go from 0 &rarr; 1. Concept to product.
           </h3>
         </div>
-        <div className="grid sm:grid-cols-3 border-t border-border bg-border gap-px">
+        <div className="grid sm:grid-cols-2 border-t border-border bg-border gap-px">
           {services.map((service, i) => (
             <div key={service.title} className="bg-background p-4 sm:p-6">
               <span className="text-muted-foreground tabular-nums">
