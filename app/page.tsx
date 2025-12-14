@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <Section>
       <Container>
-        <h1 className="font-serif">Desert Codex</h1>
+        <h1>Desert Codex</h1>
         <h2>Systems, interfaces, intelligence</h2>
 
         <h3 className="text-muted-foreground">

@@ -4,18 +4,20 @@
   /* Text scale system */
   --text-base: 1rem; /* 16px base unit */
 
-  --body-weight: 300;
-  --body-leading: 1.4;
-  --body-tracking: -0.01rem;
-
-  --heading-weight: 400;
-  --heading-leading: 1.1;
-  --heading-tracking: -0.06rem;
-
-  --prose-width: 65ch;
-
   /* Spacing system */
   --spacing: 0.25rem; /* 4px base unit */
+
+  /* Line height system */
+  --leading: 1.4; /* base line height */
+
+  /* Letter spacing system */
+  --tracking: -0.01rem; /* base letter spacing */
+
+  /* Font weights */
+  --body-weight: 300;
+  --heading-weight: 400;
+
+  --prose-width: 65ch;
 }
 
 @layer base {
@@ -26,8 +28,8 @@
 
   body {
     font-weight: var(--body-weight);
-    line-height: var(--body-leading);
-    letter-spacing: var(--body-tracking);
+    line-height: var(--leading);
+    letter-spacing: var(--tracking);
   }
 
   h1 {
@@ -37,8 +39,8 @@
       calc(var(--text-base) * 3.998)
     );
     font-weight: var(--heading-weight);
-    line-height: var(--heading-leading);
-    letter-spacing: var(--heading-tracking);
+    line-height: calc(var(--leading) * 0.785);
+    letter-spacing: calc(var(--tracking) * 6);
     margin-top: calc(var(--spacing) * 12);
     margin-bottom: calc(var(--spacing) * 6);
   }
@@ -50,8 +52,8 @@
       calc(var(--text-base) * 2.827)
     );
     font-weight: var(--heading-weight);
-    line-height: var(--heading-leading);
-    letter-spacing: var(--heading-tracking);
+    line-height: calc(var(--leading) * 0.785);
+    letter-spacing: calc(var(--tracking) * 6);
     margin-top: calc(var(--spacing) * 10);
     margin-bottom: calc(var(--spacing) * 5);
   }
@@ -63,8 +65,8 @@
       calc(var(--text-base) * 2)
     );
     font-weight: var(--heading-weight);
-    line-height: var(--heading-leading);
-    letter-spacing: var(--heading-tracking);
+    line-height: calc(var(--leading) * 0.785);
+    letter-spacing: calc(var(--tracking) * 6);
     margin-top: calc(var(--spacing) * 8);
     margin-bottom: calc(var(--spacing) * 4);
   }
@@ -76,8 +78,8 @@
       calc(var(--text-base) * 1.5)
     );
     font-weight: var(--heading-weight);
-    line-height: var(--heading-leading);
-    letter-spacing: var(--heading-tracking);
+    line-height: calc(var(--leading) * 0.785);
+    letter-spacing: calc(var(--tracking) * 6);
     margin-top: calc(var(--spacing) * 6);
     margin-bottom: calc(var(--spacing) * 3);
   }
@@ -90,8 +92,8 @@
       calc(var(--text-base) * 1.125)
     );
     font-weight: var(--heading-weight);
-    line-height: var(--body-leading);
-    letter-spacing: var(--body-tracking);
+    line-height: var(--leading);
+    letter-spacing: var(--tracking);
     margin-top: calc(var(--spacing) * 4);
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -99,8 +101,8 @@
   /* Body Text */
   p {
     font-weight: var(--body-weight);
-    line-height: var(--body-leading);
-    letter-spacing: var(--body-tracking);
+    line-height: var(--leading);
+    letter-spacing: var(--tracking);
     margin-top: calc(var(--spacing) * 4);
     margin-bottom: calc(var(--spacing) * 4);
   }
@@ -116,8 +118,8 @@
   ul,
   ol {
     font-weight: var(--body-weight);
-    line-height: var(--body-leading);
-    letter-spacing: var(--body-tracking);
+    line-height: var(--leading);
+    letter-spacing: var(--tracking);
     padding-left: 1.5em;
     margin-top: calc(var(--spacing) * 4);
     margin-bottom: calc(var(--spacing) * 4);
@@ -135,8 +137,8 @@
       var(--text-base)
     );
     font-weight: var(--body-weight);
-    line-height: var(--body-leading);
-    letter-spacing: var(--body-tracking);
+    line-height: var(--leading);
+    letter-spacing: var(--tracking);
     overflow-x: auto;
     border: 1px solid var(--border);
     padding: calc(var(--spacing) * 4);
@@ -153,8 +155,8 @@
       calc(var(--text-base) * 1.5)
     );
     font-weight: var(--body-weight);
-    line-height: var(--body-leading);
-    letter-spacing: var(--body-tracking);
+    line-height: var(--leading);
+    letter-spacing: var(--tracking);
     padding-left: calc(var(--spacing) * 4);
     border-left-width: 0.125rem;
     margin-top: calc(var(--spacing) * 6);
@@ -206,16 +208,16 @@
   font-weight: var(--heading-weight);
 }
 @utility body-leading {
-  line-height: var(--body-leading);
+  line-height: var(--leading);
 }
 @utility heading-leading {
-  line-height: var(--heading-leading);
+  line-height: calc(var(--leading) * 0.785);
 }
 @utility body-tracking {
-  letter-spacing: var(--body-tracking);
+  letter-spacing: var(--tracking);
 }
 @utility heading-tracking {
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: calc(var(--tracking) * 6);
 }
 
 /* ================================
