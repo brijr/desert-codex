@@ -1,23 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --text-xs: 0.563rem; /* 9px */
-  --text-sm: 0.75rem; /* 12px */
-  --text-base: 1rem; /* 16px */
-  --text-lg: 1.333rem; /* 21px */
-  --text-xl: 1.777rem; /* 28px */
-  --text-2xl: 2.369rem; /* 38px */
-  --text-3xl: 3.157rem; /* 51px */
-  --text-4xl: 4.209rem; /* 67px */
-
-  --text-fluid-xs: clamp(0.563rem, 0.5rem + 0.3vw, 0.75rem);
-  --text-fluid-sm: clamp(0.75rem, 0.7rem + 0.3vw, 1rem);
-  --text-fluid-base: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
-  --text-fluid-lg: clamp(1.333rem, 1.2rem + 0.5vw, 1.5rem);
-  --text-fluid-xl: clamp(1.777rem, 1.6rem + 0.8vw, 2rem);
-  --text-fluid-2xl: clamp(2.369rem, 2rem + 1.5vw, 2.827rem);
-  --text-fluid-3xl: clamp(3.157rem, 2.5rem + 2.5vw, 3.998rem);
-  --text-fluid-4xl: clamp(4.209rem, 3rem + 4vw, 5.61rem);
+  /* Text scale system */
+  --text-base: 1rem; /* 16px base unit */
 
   --body-weight: 300;
   --body-leading: 1.4;
@@ -46,7 +31,11 @@
   }
 
   h1 {
-    font-size: var(--text-fluid-3xl);
+    font-size: clamp(
+      calc(var(--text-base) * 3.157),
+      calc(var(--text-base) * 2.5) + 2.5vw,
+      calc(var(--text-base) * 3.998)
+    );
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
@@ -55,7 +44,11 @@
   }
 
   h2 {
-    font-size: var(--text-fluid-2xl);
+    font-size: clamp(
+      calc(var(--text-base) * 2.369),
+      calc(var(--text-base) * 2) + 1.5vw,
+      calc(var(--text-base) * 2.827)
+    );
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
@@ -64,7 +57,11 @@
   }
 
   h3 {
-    font-size: var(--text-fluid-xl);
+    font-size: clamp(
+      calc(var(--text-base) * 1.777),
+      calc(var(--text-base) * 1.6) + 0.8vw,
+      calc(var(--text-base) * 2)
+    );
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
@@ -73,7 +70,11 @@
   }
 
   h4 {
-    font-size: var(--text-fluid-lg);
+    font-size: clamp(
+      calc(var(--text-base) * 1.333),
+      calc(var(--text-base) * 1.2) + 0.5vw,
+      calc(var(--text-base) * 1.5)
+    );
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
@@ -83,7 +84,11 @@
 
   h5,
   h6 {
-    font-size: var(--text-fluid-base);
+    font-size: clamp(
+      var(--text-base),
+      calc(var(--text-base) * 0.95) + 0.3vw,
+      calc(var(--text-base) * 1.125)
+    );
     font-weight: var(--heading-weight);
     line-height: var(--body-leading);
     letter-spacing: var(--body-tracking);
@@ -120,11 +125,15 @@
 
   /* Code */
   code {
-    font-size: 0.875em;
+    font-size: calc(var(--text-base) * 0.875);
   }
 
   pre {
-    font-size: var(--text-sm);
+    font-size: clamp(
+      calc(var(--text-base) * 0.75),
+      calc(var(--text-base) * 0.7) + 0.3vw,
+      var(--text-base)
+    );
     font-weight: var(--body-weight);
     line-height: var(--body-leading);
     letter-spacing: var(--body-tracking);
@@ -138,7 +147,11 @@
 
   /* Blockquotes */
   blockquote {
-    font-size: var(--text-lg);
+    font-size: clamp(
+      calc(var(--text-base) * 1.333),
+      calc(var(--text-base) * 1.2) + 0.5vw,
+      calc(var(--text-base) * 1.5)
+    );
     font-weight: var(--body-weight);
     line-height: var(--body-leading);
     letter-spacing: var(--body-tracking);
