@@ -29,13 +29,8 @@
 
   --prose-width: 65ch;
 
-  --space-xs: 0.333rem; /* ~5px */
-  --space-sm: 0.667rem; /* ~11px */
-  --space-base: 1rem; /* 16px */
-  --space-lg: 1.333rem; /* ~21px */
-  --space-xl: 1.777rem; /* ~28px */
-  --space-2xl: 2.369rem; /* ~38px */
-  --space-3xl: 3.157rem; /* ~51px */
+  /* Spacing system */
+  --spacing: 0.25rem; /* 4px base unit */
 }
 
 @layer base {
@@ -55,6 +50,8 @@
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
+    margin-top: calc(var(--spacing) * 12);
+    margin-bottom: calc(var(--spacing) * 6);
   }
 
   h2 {
@@ -62,6 +59,8 @@
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
+    margin-top: calc(var(--spacing) * 10);
+    margin-bottom: calc(var(--spacing) * 5);
   }
 
   h3 {
@@ -69,6 +68,8 @@
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
+    margin-top: calc(var(--spacing) * 8);
+    margin-bottom: calc(var(--spacing) * 4);
   }
 
   h4 {
@@ -76,6 +77,8 @@
     font-weight: var(--heading-weight);
     line-height: var(--heading-leading);
     letter-spacing: var(--heading-tracking);
+    margin-top: calc(var(--spacing) * 6);
+    margin-bottom: calc(var(--spacing) * 3);
   }
 
   h5,
@@ -84,6 +87,8 @@
     font-weight: var(--heading-weight);
     line-height: var(--body-leading);
     letter-spacing: var(--body-tracking);
+    margin-top: calc(var(--spacing) * 4);
+    margin-bottom: calc(var(--spacing) * 2);
   }
 
   /* Body Text */
@@ -91,6 +96,8 @@
     font-weight: var(--body-weight);
     line-height: var(--body-leading);
     letter-spacing: var(--body-tracking);
+    margin-top: calc(var(--spacing) * 4);
+    margin-bottom: calc(var(--spacing) * 4);
   }
 
   /* Links */
@@ -107,6 +114,8 @@
     line-height: var(--body-leading);
     letter-spacing: var(--body-tracking);
     padding-left: 1.5em;
+    margin-top: calc(var(--spacing) * 4);
+    margin-bottom: calc(var(--spacing) * 4);
   }
 
   /* Code */
@@ -121,8 +130,10 @@
     letter-spacing: var(--body-tracking);
     overflow-x: auto;
     border: 1px solid var(--border);
-    padding: var(--space-base);
+    padding: calc(var(--spacing) * 4);
     border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 4);
+    margin-bottom: calc(var(--spacing) * 4);
   }
 
   /* Blockquotes */
@@ -131,8 +142,25 @@
     font-weight: var(--body-weight);
     line-height: var(--body-leading);
     letter-spacing: var(--body-tracking);
-    padding-left: var(--space-base);
+    padding-left: calc(var(--spacing) * 4);
     border-left-width: 0.125rem;
+    margin-top: calc(var(--spacing) * 6);
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+
+  /* Remove margin-top on first children */
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child,
+  p:first-child,
+  ul:first-child,
+  ol:first-child,
+  pre:first-child,
+  blockquote:first-child {
+    margin-top: 0;
   }
 }
 
@@ -187,13 +215,13 @@
     max-width: var(--prose-width);
 
     & > * + * {
-      margin-top: 0.5rem;
+      margin-top: calc(var(--spacing) * 2);
     }
 
     & h1,
     & h2,
     & h3 {
-      margin-top: 1rem;
+      margin-top: calc(var(--spacing) * 4);
     }
 
     & h1:first-child,
