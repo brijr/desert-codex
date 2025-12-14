@@ -1,16 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* ========== BASE UNITS ========== */
+  /* ========================================
+     BASE UNITS
+     Change these to control the entire system
+     ======================================== */
   --text-base: 1rem;
   --text-ratio: 1;
   --spacing: 0.25rem;
   --spacing-ratio: 1.4;
   --leading: 1.4;
   --tracking: 0rem;
+  --fluid: 1; /* 0 = static, 1 = normal, 2 = more fluid */
 
-  /* ========== COMPUTED SCALES ========== */
-  /* Text scale (ratio^n) */
+  /* ========================================
+     TEXT SCALE
+     Computed from --text-ratio
+     ======================================== */
+  /* Smaller sizes (ratio^-n) */
+  --text--2: calc(1 / var(--text-ratio) / var(--text-ratio));
+  --text--1: calc(1 / var(--text-ratio));
+
+  /* Larger sizes (ratio^n) */
   --text-1: var(--text-ratio);
   --text-2: calc(var(--text-ratio) * var(--text-ratio));
   --text-3: calc(var(--text-ratio) * var(--text-ratio) * var(--text-ratio));
@@ -18,8 +29,25 @@
     var(--text-ratio) * var(--text-ratio) * var(--text-ratio) *
       var(--text-ratio)
   );
+  --text-5: calc(
+    var(--text-ratio) * var(--text-ratio) * var(--text-ratio) *
+      var(--text-ratio) * var(--text-ratio)
+  );
 
-  /* Spacing scale (ratio^n) */
+  /* Semantic aliases */
+  --text-xs: var(--text--2);
+  --text-sm: var(--text--1);
+  --text-md: 1;
+  --text-lg: var(--text-1);
+  --text-xl: var(--text-2);
+  --text-2xl: var(--text-3);
+  --text-3xl: var(--text-4);
+  --text-4xl: var(--text-5);
+
+  /* ========================================
+     SPACING SCALE
+     Computed from --spacing-ratio
+     ======================================== */
   --space-1: var(--spacing-ratio);
   --space-2: calc(var(--spacing-ratio) * var(--spacing-ratio));
   --space-3: calc(
@@ -34,11 +62,23 @@
       var(--spacing-ratio) * var(--spacing-ratio)
   );
 
-  /* ========== DERIVED VALUES ========== */
+  /* Semantic aliases */
+  --space-xs: 1;
+  --space-sm: var(--space-1);
+  --space-md: var(--space-2);
+  --space-lg: var(--space-3);
+  --space-xl: var(--space-4);
+  --space-2xl: var(--space-5);
+
+  /* ========================================
+     DERIVED VALUES
+     ======================================== */
   --leading-tight: calc(var(--leading) * 0.785);
   --tracking-tight: calc(var(--tracking) * 6);
 
-  /* ========== OTHER ========== */
+  /* ========================================
+     OTHER
+     ======================================== */
   --body-weight: 300;
   --heading-weight: 400;
   --prose-width: 65ch;
@@ -68,56 +108,56 @@
 
   h1 {
     font-size: clamp(
-      calc(var(--text-base) * var(--text-4)),
-      calc(var(--text-base) * var(--text-3)) + 2.5vw,
-      calc(var(--text-base) * var(--text-4) * var(--text-1))
+      calc(var(--text-base) * var(--text-3xl)),
+      calc(var(--text-base) * var(--text-2xl)) + calc(2.5vw * var(--fluid)),
+      calc(var(--text-base) * var(--text-4xl))
     );
-    margin-top: calc(var(--spacing) * var(--space-5));
-    margin-bottom: calc(var(--spacing) * var(--space-4));
+    margin-top: calc(var(--spacing) * var(--space-2xl));
+    margin-bottom: calc(var(--spacing) * var(--space-xl));
   }
 
   h2 {
     font-size: clamp(
-      calc(var(--text-base) * var(--text-3)),
-      calc(var(--text-base) * var(--text-2)) + 1.5vw,
-      calc(var(--text-base) * var(--text-3) * var(--text-1))
+      calc(var(--text-base) * var(--text-2xl)),
+      calc(var(--text-base) * var(--text-xl)) + calc(1.5vw * var(--fluid)),
+      calc(var(--text-base) * var(--text-3xl))
     );
-    margin-top: calc(var(--spacing) * var(--space-4));
-    margin-bottom: calc(var(--spacing) * var(--space-3));
+    margin-top: calc(var(--spacing) * var(--space-xl));
+    margin-bottom: calc(var(--spacing) * var(--space-lg));
   }
 
   h3 {
     font-size: clamp(
-      calc(var(--text-base) * var(--text-2)),
-      calc(var(--text-base) * var(--text-1)) + 0.8vw,
-      calc(var(--text-base) * var(--text-2) * var(--text-1))
+      calc(var(--text-base) * var(--text-xl)),
+      calc(var(--text-base) * var(--text-lg)) + calc(0.8vw * var(--fluid)),
+      calc(var(--text-base) * var(--text-2xl))
     );
-    margin-top: calc(var(--spacing) * var(--space-3));
-    margin-bottom: calc(var(--spacing) * var(--space-2));
+    margin-top: calc(var(--spacing) * var(--space-lg));
+    margin-bottom: calc(var(--spacing) * var(--space-md));
   }
 
   h4 {
     font-size: clamp(
-      calc(var(--text-base) * var(--text-1)),
-      var(--text-base) + 0.5vw,
-      calc(var(--text-base) * var(--text-1) * var(--text-1))
+      calc(var(--text-base) * var(--text-lg)),
+      var(--text-base) + calc(0.5vw * var(--fluid)),
+      calc(var(--text-base) * var(--text-xl))
     );
-    margin-top: calc(var(--spacing) * var(--space-2));
-    margin-bottom: calc(var(--spacing) * var(--space-1));
+    margin-top: calc(var(--spacing) * var(--space-md));
+    margin-bottom: calc(var(--spacing) * var(--space-sm));
   }
 
   h5,
   h6 {
     font-size: clamp(
       var(--text-base),
-      calc(var(--text-base) * 0.95) + 0.3vw,
-      calc(var(--text-base) * var(--text-1))
+      calc(var(--text-base) * 0.95) + calc(0.3vw * var(--fluid)),
+      calc(var(--text-base) * var(--text-lg))
     );
     font-weight: var(--heading-weight);
     line-height: var(--leading);
     letter-spacing: var(--tracking);
-    margin-top: calc(var(--spacing) * var(--space-1));
-    margin-bottom: var(--spacing);
+    margin-top: calc(var(--spacing) * var(--space-sm));
+    margin-bottom: calc(var(--spacing) * var(--space-xs));
   }
 
   /* Body text */
@@ -125,8 +165,8 @@
     font-weight: var(--body-weight);
     line-height: var(--leading);
     letter-spacing: var(--tracking);
-    margin-top: calc(var(--spacing) * var(--space-2));
-    margin-bottom: calc(var(--spacing) * var(--space-2));
+    margin-top: calc(var(--spacing) * var(--space-md));
+    margin-bottom: calc(var(--spacing) * var(--space-md));
   }
 
   /* Links */
@@ -143,19 +183,19 @@
     line-height: var(--leading);
     letter-spacing: var(--tracking);
     padding-left: 1.5em;
-    margin-top: calc(var(--spacing) * var(--space-2));
-    margin-bottom: calc(var(--spacing) * var(--space-2));
+    margin-top: calc(var(--spacing) * var(--space-md));
+    margin-bottom: calc(var(--spacing) * var(--space-md));
   }
 
   /* Code */
   code {
-    font-size: calc(var(--text-base) * 0.875);
+    font-size: calc(var(--text-base) * var(--text-sm));
   }
 
   pre {
     font-size: clamp(
-      calc(var(--text-base) / var(--text-1)),
-      calc(var(--text-base) * 0.9) + 0.3vw,
+      calc(var(--text-base) * var(--text-sm)),
+      calc(var(--text-base) * 0.9) + calc(0.3vw * var(--fluid)),
       var(--text-base)
     );
     font-weight: var(--body-weight);
@@ -163,26 +203,38 @@
     letter-spacing: var(--tracking);
     overflow-x: auto;
     border: 1px solid var(--border);
-    padding: calc(var(--spacing) * var(--space-2));
+    padding: calc(var(--spacing) * var(--space-md));
     border-radius: var(--radius);
-    margin-top: calc(var(--spacing) * var(--space-2));
-    margin-bottom: calc(var(--spacing) * var(--space-2));
+    margin-top: calc(var(--spacing) * var(--space-md));
+    margin-bottom: calc(var(--spacing) * var(--space-md));
   }
 
   /* Blockquotes */
   blockquote {
     font-size: clamp(
-      calc(var(--text-base) * var(--text-1)),
-      var(--text-base) + 0.5vw,
-      calc(var(--text-base) * var(--text-1) * var(--text-1))
+      calc(var(--text-base) * var(--text-lg)),
+      var(--text-base) + calc(0.5vw * var(--fluid)),
+      calc(var(--text-base) * var(--text-xl))
     );
     font-weight: var(--body-weight);
     line-height: var(--leading);
     letter-spacing: var(--tracking);
-    padding-left: calc(var(--spacing) * var(--space-2));
+    padding-left: calc(var(--spacing) * var(--space-md));
     border-left-width: 0.125rem;
-    margin-top: calc(var(--spacing) * var(--space-3));
-    margin-bottom: calc(var(--spacing) * var(--space-3));
+    margin-top: calc(var(--spacing) * var(--space-lg));
+    margin-bottom: calc(var(--spacing) * var(--space-lg));
+  }
+
+  /* Small text */
+  small {
+    font-size: calc(var(--text-base) * var(--text-sm));
+  }
+
+  /* Captions, fine print */
+  figcaption,
+  caption {
+    font-size: calc(var(--text-base) * var(--text-xs));
+    color: var(--muted-foreground);
   }
 
   /* First-child margin reset */
@@ -242,11 +294,11 @@
     max-width: var(--prose-width);
 
     & > * + * {
-      margin-top: calc(var(--spacing) * var(--space-1));
+      margin-top: calc(var(--spacing) * var(--space-sm));
     }
 
     & :is(h1, h2, h3) {
-      margin-top: calc(var(--spacing) * var(--space-2));
+      margin-top: calc(var(--spacing) * var(--space-md));
     }
 
     & :is(h1, h2, h3):first-child {
