@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <Main className="leading-tight tracking-tight min-h-screen space-y-32 text-lg text-pretty">
+    <Main className="min-h-screen divide-y">
       <Hero />
       <WhatIDo />
       <HowItWorks />
@@ -25,29 +25,25 @@ export default function Home() {
 const Hero = () => {
   return (
     <Section>
-      <Container className="grid sm:grid-cols-2">
-        <div className="h-[50vh] sm:h-[75vh] overflow-hidden relative">
-          <Image
-            src={HeroImage}
-            alt="Hero Image"
-            fill
-            className="object-cover"
-            placeholder="blur"
-          />
-        </div>
-        <div className="space-y-8 p-8 flex flex-col justify-between">
-          <h1 className="text-6xl font-serif uppercase">Desert Codex</h1>
-          <div className="space-y-1 mt-auto">
-            <h2>Systems, interfaces, intelligence</h2>
-            <h3 className="text-muted-foreground">
-              I help founders go from idea to live product — brand, design, and
-              build.
-            </h3>
-          </div>
-          <Link className="block" href="/">
-            Let&apos;s build something &rarr;
-          </Link>
-        </div>
+      <Container className="space-y-6">
+        <h1 className="font-serif">Desert Codex</h1>
+        <h2>Systems, interfaces, intelligence</h2>
+
+        <h3 className="text-muted-foreground">
+          I help founders go from idea to live product — brand, design, and
+          build.
+        </h3>
+
+        <Link className="block" href="/">
+          Let&apos;s build something &rarr;
+        </Link>
+
+        <Image
+          src={HeroImage}
+          alt="Hero Image"
+          className="aspect-video object-cover"
+          placeholder="blur"
+        />
       </Container>
     </Section>
   );
@@ -56,9 +52,9 @@ const Hero = () => {
 const WhatIDo = () => {
   return (
     <Section>
-      <Container className="px-6 sm:px-0">
+      <Container>
         <div className="max-w-2xl">
-          <h3 className="text-4xl font-serif uppercase">What I do</h3>
+          <h3>What I do</h3>
           <h4 className="mt-6 mb-2 text-muted-foreground">Brand + Identity</h4>
           <p>
             Name, logo, visual system — the foundation that makes everything
@@ -87,9 +83,9 @@ const WhatIDo = () => {
 const HowItWorks = () => {
   return (
     <Section>
-      <Container className="px-6 sm:px-0">
+      <Container>
         <div className="max-w-2xl">
-          <h3 className="text-4xl font-serif uppercase">How it works</h3>
+          <h3>How it works</h3>
           <p className="mt-6">This is a partnership, not a ticket queue.</p>
           <p className="mt-4">
             We work together monthly — I become an extension of your team while
@@ -115,8 +111,8 @@ const HowItWorks = () => {
 const SelectWork = () => {
   return (
     <Section>
-      <Container className="px-6 sm:px-0">
-        <h3 className="text-4xl font-serif uppercase mb-6">Select work</h3>
+      <Container>
+        <h3 className="mb-6">Select work</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border bg-border gap-px">
           {clients.map((client) => (
             <Link
@@ -141,28 +137,26 @@ const SelectWork = () => {
 const About = () => {
   return (
     <Section>
-      <Container className="grid sm:grid-cols-2">
-        <div className="p-8 sm:pl-0">
-          <h3 className="text-4xl font-serif uppercase mb-6">About</h3>
-          <p className="mb-4">
-            I&apos;m Bridger — designer and engineer based in southern Utah.
-            I&apos;ve built my own products, helped startups ship, and learned
-            what actually matters when you&apos;re going from zero to one.
-          </p>
-          <p>
-            If you&apos;ve got an idea and need someone who can brand it, design
-            it, and build it — not just advise — let&apos;s talk.
-          </p>
-        </div>
-        <div className="h-[50vh] sm:h-[75vh] overflow-hidden relative">
-          <Image
-            src={AboutImage}
-            alt="About Image"
-            fill
-            className="object-cover"
-            placeholder="blur"
-          />
-        </div>
+      <Container>
+        <h2>About</h2>
+
+        <h3 className="text-muted-foreground">
+          I&apos;m Bridger — designer and engineer based in southern Utah.
+          I&apos;ve built my own products, helped startups ship, and learned
+          what actually matters when you&apos;re going from zero to one.
+        </h3>
+
+        <p>
+          If you&apos;ve got an idea and need someone who can brand it, design
+          it, and build it — not just advise — let&apos;s talk.
+        </p>
+
+        <Image
+          src={AboutImage}
+          alt="About Image"
+          className="aspect-video object-cover"
+          placeholder="blur"
+        />
       </Container>
     </Section>
   );
@@ -171,10 +165,13 @@ const About = () => {
 const Footer = () => {
   return (
     <Section>
-      <Container className="bg-muted p-8 border-x border-t">
+      <Container>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Link href="mailto:hello@desertcodex.com" className="hover:underline">
+            <Link
+              href="mailto:hello@desertcodex.com"
+              className="hover:underline"
+            >
               Email
             </Link>
             <span className="text-muted-foreground">·</span>

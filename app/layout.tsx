@@ -1,8 +1,9 @@
 import "./globals.css";
+import "./styles/typography.css";
 
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 
 import type { Metadata } from "next";
 

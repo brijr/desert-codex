@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@theme {
+  --text-xs: 0.563rem; /* 9px */
+  --text-sm: 0.75rem; /* 12px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.333rem; /* 21px */
+  --text-xl: 1.777rem; /* 28px */
+  --text-2xl: 2.369rem; /* 38px */
+  --text-3xl: 3.157rem; /* 51px */
+  --text-4xl: 4.209rem; /* 67px */
+
+  --text-fluid-xs: clamp(0.563rem, 0.5rem + 0.3vw, 0.75rem);
+  --text-fluid-sm: clamp(0.75rem, 0.7rem + 0.3vw, 1rem);
+  --text-fluid-base: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --text-fluid-lg: clamp(1.333rem, 1.2rem + 0.5vw, 1.5rem);
+  --text-fluid-xl: clamp(1.777rem, 1.6rem + 0.8vw, 2rem);
+  --text-fluid-2xl: clamp(2.369rem, 2rem + 1.5vw, 2.827rem);
+  --text-fluid-3xl: clamp(3.157rem, 2.5rem + 2.5vw, 3.998rem);
+  --text-fluid-4xl: clamp(4.209rem, 3rem + 4vw, 5.61rem);
+
+  --body-weight: 300;
+  --body-leading: 1.4;
+  --body-tracking: -0.01rem;
+
+  --heading-weight: 400;
+  --heading-leading: 1.1;
+  --heading-tracking: -0.06rem;
+
+  --prose-width: 65ch;
+
+  --space-xs: 0.333rem; /* ~5px */
+  --space-sm: 0.667rem; /* ~11px */
+  --space-base: 1rem; /* 16px */
+  --space-lg: 1.333rem; /* ~21px */
+  --space-xl: 1.777rem; /* ~28px */
+  --space-2xl: 2.369rem; /* ~38px */
+  --space-3xl: 3.157rem; /* ~51px */
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-weight: var(--body-weight);
+    line-height: var(--body-leading);
+    letter-spacing: var(--body-tracking);
+  }
+
+  h1 {
+    font-size: var(--text-fluid-3xl);
+    font-weight: var(--heading-weight);
+    line-height: var(--heading-leading);
+    letter-spacing: var(--heading-tracking);
+  }
+
+  h2 {
+    font-size: var(--text-fluid-2xl);
+    font-weight: var(--heading-weight);
+    line-height: var(--heading-leading);
+    letter-spacing: var(--heading-tracking);
+  }
+
+  h3 {
+    font-size: var(--text-fluid-xl);
+    font-weight: var(--heading-weight);
+    line-height: var(--heading-leading);
+    letter-spacing: var(--heading-tracking);
+  }
+
+  h4 {
+    font-size: var(--text-fluid-lg);
+    font-weight: var(--heading-weight);
+    line-height: var(--heading-leading);
+    letter-spacing: var(--heading-tracking);
+  }
+
+  h5,
+  h6 {
+    font-size: var(--text-fluid-base);
+    font-weight: var(--heading-weight);
+    line-height: var(--body-leading);
+    letter-spacing: var(--body-tracking);
+  }
+
+  /* Body Text */
+  p {
+    font-weight: var(--body-weight);
+    line-height: var(--body-leading);
+    letter-spacing: var(--body-tracking);
+  }
+
+  /* Links */
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.125em;
+    color: var(--primary);
+  }
+
+  /* Lists */
+  ul,
+  ol {
+    font-weight: var(--body-weight);
+    line-height: var(--body-leading);
+    letter-spacing: var(--body-tracking);
+    padding-left: 1.5em;
+  }
+
+  /* Code */
+  code {
+    font-size: 0.875em;
+  }
+
+  pre {
+    font-size: var(--text-sm);
+    font-weight: var(--body-weight);
+    line-height: var(--body-leading);
+    letter-spacing: var(--body-tracking);
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    padding: var(--space-base);
+    border-radius: var(--radius);
+  }
+
+  /* Blockquotes */
+  blockquote {
+    font-size: var(--text-lg);
+    font-weight: var(--body-weight);
+    line-height: var(--body-leading);
+    letter-spacing: var(--body-tracking);
+    padding-left: var(--space-base);
+    border-left-width: 0.125rem;
+  }
+}
+
+/* Prose Width */
+@utility prose {
+  max-width: var(--prose-width);
+}
+
+/* Text Balance */
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
+}
+
+/* Gradient Text */
+@utility text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Override typography styles when needed */
+@utility body-weight {
+  font-weight: var(--body-weight);
+}
+@utility heading-weight {
+  font-weight: var(--heading-weight);
+}
+@utility body-leading {
+  line-height: var(--body-leading);
+}
+@utility heading-leading {
+  line-height: var(--heading-leading);
+}
+@utility body-tracking {
+  letter-spacing: var(--body-tracking);
+}
+@utility heading-tracking {
+  letter-spacing: var(--heading-tracking);
+}
+
+/* ================================
+   Simple Components
+   ================================ */
+
+@layer components {
+  /* Article - Auto-styled content */
+  .article {
+    max-width: var(--prose-width);
+
+    & > * + * {
+      margin-top: 0.5rem;
+    }
+
+    & h1,
+    & h2,
+    & h3 {
+      margin-top: 1rem;
+    }
+
+    & h1:first-child,
+    & h2:first-child,
+    & h3:first-child {
+      margin-top: 0;
+    }
+  }
+}
