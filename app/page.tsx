@@ -1,13 +1,13 @@
-import { Main, Section, Container } from "@/components/ds";
+import { Main } from "@/components/ds";
 
-import { clients } from "@/lib/clients";
-import { ModeToggle } from "@/components/mode-toggle";
-
-import AboutImage from "@/public/about.jpeg";
-import HeroImage from "@/public/hero.jpeg";
-
-import Image from "next/image";
-import Link from "next/link";
+import { Hero } from "./_components/hero";
+import { WhatIDo } from "./_components/what-i-do";
+import { HowItWorks } from "./_components/how-it-works";
+import { SelectWork } from "./_components/select-work";
+import { Stack } from "./_components/stack";
+import { About } from "./_components/about";
+import { FAQ } from "./_components/faq";
+import { Footer } from "./_components/footer";
 
 export default function Home() {
   return (
@@ -16,213 +16,10 @@ export default function Home() {
       <WhatIDo />
       <HowItWorks />
       <SelectWork />
+      <Stack />
       <About />
+      <FAQ />
       <Footer />
     </Main>
   );
 }
-
-const Hero = () => {
-  return (
-    <Section>
-      <Container className="!p-0">
-        <div className="px-4 py-4 sm:px-6 sm:py-6">
-          <h1>Desert Codex</h1>
-          <h2>Systems, interfaces, intelligence</h2>
-          <h3 className="text-muted-foreground">
-            I help founders go from idea to live product — brand, design, and
-            build.
-          </h3>
-          <Link className="block" href="/">
-            Let&apos;s build something &rarr;
-          </Link>
-        </div>
-
-        <Image
-          src={HeroImage}
-          alt="Hero Image"
-          className="aspect-video object-cover"
-          placeholder="blur"
-        />
-      </Container>
-    </Section>
-  );
-};
-
-const services = [
-  {
-    title: "Brand + Identity",
-    description:
-      "Name, logo, visual system — the foundation that makes everything else easier. A clear identity from day one, not an afterthought.",
-  },
-  {
-    title: "Design + Interface",
-    description:
-      "Product design that ships. From early concepts to polished UI, built in systems that scale. No handoffs, no Figma files that collect dust.",
-  },
-  {
-    title: "Build + Launch",
-    description:
-      "Full stack implementation — landing pages, apps, integrations. I write the code and get it live. You end the month with something real.",
-  },
-];
-
-const WhatIDo = () => {
-  return (
-    <Section>
-      <Container className="!p-0">
-        <div className="px-4 py-4 sm:px-6 sm:pt-6">
-          <h2>What I do</h2>
-          <h3 className="text-muted-foreground">
-            I help founders go from 0 &rarr; 1. Concept to product.
-          </h3>
-        </div>
-        <div className="grid sm:grid-cols-3 border-t border-border bg-border gap-px">
-          {services.map((service, i) => (
-            <div key={service.title} className="bg-background p-4 sm:p-6">
-              <span className="text-muted-foreground tabular-nums">
-                0{i + 1}
-              </span>
-              <h4 className="mt-2">{service.title}</h4>
-              <p className="text-muted-foreground mt-2">
-                {service.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-};
-
-const HowItWorks = () => {
-  return (
-    <Section>
-      <Container className="!p-0">
-        <div className="px-4 py-4 sm:px-6 sm:pt-6">
-          <h3>How it works</h3>
-          <h4 className="text-muted-foreground">
-            This is a partnership, not a ticket queue.
-          </h4>
-        </div>
-        <div className="grid sm:grid-cols-2 border-t border-border bg-border gap-px">
-          <div className="bg-background p-4 sm:p-6">
-            <p>
-              We work together monthly — I become an extension of your team
-              while you&apos;re building. Strategy, design, and code in one
-              place.
-            </p>
-            <p className="text-muted-foreground mt-4">
-              Best fit: founders with an idea and momentum who need a builder,
-              not a roadmap.
-            </p>
-          </div>
-          <div className="bg-background p-4 sm:p-6 flex flex-col justify-between gap-4">
-            <div>
-              <span className="text-muted-foreground text-sm">Starting at</span>
-              <p className="text-2xl sm:text-3xl tracking-tight">$5k/month</p>
-              <p className="text-muted-foreground mt-1">
-                Async-first, focused hours, real output.
-              </p>
-            </div>
-            <Link href="/">Start a conversation &rarr;</Link>
-          </div>
-        </div>
-      </Container>
-    </Section>
-  );
-};
-
-const SelectWork = () => {
-  return (
-    <Section>
-      <Container className="!p-0">
-        <h3 className="px-4 py-4 sm:px-6 sm:pt-6">Select work</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 border-t border-border bg-border gap-px">
-          {clients.map((client) => (
-            <Link
-              key={client.name}
-              href={client.url}
-              target="_blank"
-              className="flex items-center justify-center p-8 bg-background grayscale hover:brightness-110 transition-colors"
-            >
-              <Image
-                src={client.image}
-                alt={client.name}
-                className="h-6 brightness-0 dark:brightness-100 dark:invert"
-              />
-            </Link>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-};
-
-const About = () => {
-  return (
-    <Section>
-      <Container className="!p-0">
-        <div className="px-4 py-4 sm:px-6 sm:pt-6">
-          <h2>About</h2>
-
-          <h3 className="text-muted-foreground">
-            I&apos;m Bridger — designer and engineer based in southern Utah.
-            I&apos;ve built my own products, helped startups ship, and learned
-            what actually matters when you&apos;re going from zero to one.
-          </h3>
-
-          <p>
-            If you&apos;ve got an idea and need someone who can brand it, design
-            it, and build it — not just advise — let&apos;s talk.
-          </p>
-        </div>
-        <Image
-          src={AboutImage}
-          alt="About Image"
-          className="aspect-video object-cover"
-          placeholder="blur"
-        />
-      </Container>
-    </Section>
-  );
-};
-
-const Footer = () => {
-  return (
-    <Section>
-      <Container>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <Link
-              href="mailto:hello@desertcodex.com"
-              className="hover:underline"
-            >
-              Email
-            </Link>
-            <span className="text-muted-foreground">·</span>
-            <Link
-              href="https://x.com/bridgertower"
-              target="_blank"
-              className="hover:underline"
-            >
-              X
-            </Link>
-            <span className="text-muted-foreground">·</span>
-            <Link
-              href="https://github.com/brijr"
-              target="_blank"
-              className="hover:underline"
-            >
-              GitHub
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <p className="text-muted-foreground">© Desert Codex</p>
-            <ModeToggle />
-          </div>
-        </div>
-      </Container>
-    </Section>
-  );
-};

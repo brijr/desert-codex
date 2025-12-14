@@ -1,5 +1,5 @@
-import "./globals.css";
 import "./styles/typography.css";
+import "./globals.css";
 
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";

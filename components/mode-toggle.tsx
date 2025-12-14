@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { Button } from "./ui/button";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -17,9 +18,10 @@ export function ModeToggle() {
   }
 
   return (
-    <button
+    <Button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="inline-flex items-center justify-center"
+      variant="outline"
+      size="icon"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
@@ -27,6 +29,6 @@ export function ModeToggle() {
       ) : (
         <Moon className="h-5 w-5" />
       )}
-    </button>
+    </Button>
   );
 }
