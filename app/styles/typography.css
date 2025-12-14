@@ -6,13 +6,13 @@
      Change these to control the entire system
      ======================================== */
   --text-base: 1rem;
-  --text-ratio: 1.125;
+  --text-ratio: 1;
   --spacing: 0.25rem;
-  --spacing-ratio: 1.4;
+  --spacing-ratio: 1.333;
   --leading: 1.4;
   --tracking: 0rem;
   --fluid: 1; /* 0 = static, 1 = normal, 2 = more fluid */
-  --heading-space: 1.75; /* multiplier for heading margin-top */
+  --heading-space: 2; /* multiplier for heading margin-top */
 
   /* ========================================
      TEXT SCALE

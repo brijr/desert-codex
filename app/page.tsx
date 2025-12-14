@@ -25,23 +25,23 @@ export default function Home() {
 const Hero = () => {
   return (
     <Section>
-      <Container>
-        <h1>Desert Codex</h1>
-        <h2>Systems, interfaces, intelligence</h2>
-
-        <h3 className="text-muted-foreground">
-          I help founders go from idea to live product — brand, design, and
-          build.
-        </h3>
-
-        <Link className="block" href="/">
-          Let&apos;s build something &rarr;
-        </Link>
+      <Container className="!p-0">
+        <div className="px-4 py-4 sm:px-6 sm:py-6">
+          <h1>Desert Codex</h1>
+          <h2>Systems, interfaces, intelligence</h2>
+          <h3 className="text-muted-foreground">
+            I help founders go from idea to live product — brand, design, and
+            build.
+          </h3>
+          <Link className="block" href="/">
+            Let&apos;s build something &rarr;
+          </Link>
+        </div>
 
         <Image
           src={HeroImage}
           alt="Hero Image"
-          className="aspect-video object-cover mt-6"
+          className="aspect-video object-cover"
           placeholder="blur"
         />
       </Container>
@@ -131,24 +131,25 @@ const SelectWork = () => {
 const About = () => {
   return (
     <Section>
-      <Container>
-        <h2>About</h2>
+      <Container className="!p-0">
+        <div className="px-4 py-4 sm:px-6 sm:pt-6">
+          <h2>About</h2>
 
-        <h3 className="text-muted-foreground">
-          I&apos;m Bridger — designer and engineer based in southern Utah.
-          I&apos;ve built my own products, helped startups ship, and learned
-          what actually matters when you&apos;re going from zero to one.
-        </h3>
+          <h3 className="text-muted-foreground">
+            I&apos;m Bridger — designer and engineer based in southern Utah.
+            I&apos;ve built my own products, helped startups ship, and learned
+            what actually matters when you&apos;re going from zero to one.
+          </h3>
 
-        <p>
-          If you&apos;ve got an idea and need someone who can brand it, design
-          it, and build it — not just advise — let&apos;s talk.
-        </p>
-
+          <p>
+            If you&apos;ve got an idea and need someone who can brand it, design
+            it, and build it — not just advise — let&apos;s talk.
+          </p>
+        </div>
         <Image
           src={AboutImage}
           alt="About Image"
-          className="aspect-video object-cover mt-6"
+          className="aspect-video object-cover"
           placeholder="blur"
         />
       </Container>
