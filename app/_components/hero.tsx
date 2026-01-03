@@ -11,8 +11,8 @@ export const Hero = () => {
           <h1 className="text-6xl font-serif uppercase">Desert Codex</h1>
           <h2>Systems, interfaces, intelligence</h2>
           <h3 className="text-muted-foreground">
-            I design and build for founders — new products and the iterations
-            that matter. Brand, interface, code.
+            I design and build for founders — new products and the features
+            that move them forward. Brand, interface, code.
           </h3>
           <Link className="block" href="/">
             Let&apos;s build something &rarr;
