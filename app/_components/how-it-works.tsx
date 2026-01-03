@@ -19,8 +19,9 @@ export const HowItWorks = () => {
               place.
             </p>
             <p className="text-muted-foreground mt-4">
-              Best fit: founders with an idea and momentum who need a builder,
-              not a roadmap.
+              Best fit: founders building something new, or teams pushing
+              what&apos;s live to the next level. You need a builder, not a
+              roadmap.
             </p>
           </div>
           <div className="bg-background p-4 sm:p-6 flex flex-col justify-between gap-4">
