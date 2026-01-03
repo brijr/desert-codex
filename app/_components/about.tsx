@@ -12,12 +12,13 @@ export const About = () => {
           <h3 className="text-muted-foreground">
             I&apos;m Bridger — designer and engineer based in southern Utah.
             I&apos;ve built my own products, helped startups ship, and learned
-            what actually matters when you&apos;re going from zero to one.
+            what actually moves the needle.
           </h3>
 
           <p>
-            If you&apos;ve got an idea and need someone who can brand it, design
-            it, and build it — not just advise — let&apos;s talk.
+            If you&apos;re building something new — or pushing your product to
+            what&apos;s next — and need someone who can design it, brand it, and
+            ship it, let&apos;s talk.
           </p>
         </div>
         <Image

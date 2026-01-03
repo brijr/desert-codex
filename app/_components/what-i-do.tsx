@@ -30,7 +30,7 @@ export const WhatIDo = () => {
         <div className="px-4 py-4 sm:px-6 sm:pt-6">
           <h2>What I do</h2>
           <h3 className="text-muted-foreground">
-            I help founders go from 0 &rarr; 1. Concept to product.
+            From concept to traction. New products and critical iterations.
           </h3>
         </div>
         <div className="grid sm:grid-cols-2 border-t border-border bg-border gap-px">
