@@ -26,7 +26,7 @@ const services = [
 export const WhatIDo = () => {
   return (
     <Section>
-      <Container className="!p-0">
+      <Container className="!p-0 bg-muted">
         <div className="px-4 py-4 sm:px-6 sm:pt-6">
           <h2>What I do</h2>
           <h3 className="text-muted-foreground">

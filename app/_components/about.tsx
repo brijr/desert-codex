@@ -5,7 +5,7 @@ import AboutImage from "@/public/about.jpeg";
 export const About = () => {
   return (
     <Section>
-      <Container className="!p-0">
+      <Container className="!p-0 bg-muted">
         <div className="px-4 py-4 sm:px-6 sm:pt-6">
           <h2>About</h2>
 
